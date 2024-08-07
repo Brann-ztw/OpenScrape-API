@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import axios from 'axios';
-import { ReturnScraper, ReturnPromise, ReturnAxios, ResponseType, ResponseEndpoint, DataReponse } from "../types/downloadYtInterface";
+import { ReturnScraper, ReturnPromise, ReturnAxios, ResponseType, ResponseEndpoint, DataReponse } from "../types/downloadYtType";
 
 let response: ResponseType;
 
@@ -54,7 +54,7 @@ const downloadYoutube = async(search: string): ReturnPromise => {
   }
 };
 
-export const downloadYoutubeControll = async(req: Request, res: Response) => {
+export const downloadYoutubeControll = async(req: Request, res: Response): Promise<Response> => {
   if(!req.query.url) {
     const ResponseJson: ResponseEndpoint = {
       status: 'ok',
@@ -73,7 +73,7 @@ export const downloadYoutubeControll = async(req: Request, res: Response) => {
   } catch (error) {
     const ResponseJson: ResponseEndpoint = {
       status: 500,
-      data: error
+      data: 'server error'
     }
     return res.status(500).json(ResponseJson);
   }

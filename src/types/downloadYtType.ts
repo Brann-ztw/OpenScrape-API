@@ -45,7 +45,7 @@ type status = 'ok' | 500;
 
 export interface ResponseEndpoint {
   status: status,
-  data?: DataReponse | unknown
+  data?: DataReponse
   msg?: string
 }
   

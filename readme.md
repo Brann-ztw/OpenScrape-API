@@ -42,6 +42,15 @@ You can replace `localhost` with your server's domain name. The repository is de
     - `thumbnail`: The URL of the video’s thumbnail image. 🖼️
     - `downloadLink`: A link to download the video/audio. ⬇️
 
+### Instagram Reels Download Endpoint
+
+- **`GET /download/ig/?url=<YouTube URL>`**: Fetch video details from an Instagram Reel URL. 📸
+  - **Parameters:**
+    - `url`: The Instagram Reel video URL. 🌐
+  - **Response:**
+    - `thumbnail`: The URL of the Reel’s thumbnail image. 🖼️
+    - `downloadLink`:  A link to download the Reel video. ⬇️
+
 ## 🤝 Contributing
 
 We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) to get started.
