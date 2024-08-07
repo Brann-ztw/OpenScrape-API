@@ -56,3 +56,4 @@ export const downloadIgController = async(req: Request, res:Response): Promise<R
     return res.status(500).json(ResponseJson);
   }
 }
+
