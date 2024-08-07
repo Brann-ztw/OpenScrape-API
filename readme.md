@@ -13,7 +13,7 @@ Welcome to **OpenScrape API**, an open-source RESTful service built with **TypeS
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/Brann-ztw/OpenScrape-AP.git
+   git clone https://github.com/Brann-ztw/OpenScrape-API.git
    ```
 2. **Install Dependencies:**
    ```bash
@@ -44,7 +44,7 @@ You can replace `localhost` with your server's domain name. The repository is de
 
 ### Instagram Reels Download Endpoint
 
-- **`GET /download/ig/?url=<YouTube URL>`**: Fetch video details from an Instagram Reel URL. 📸
+- **`GET /download/ig/?url=<Instagram URL>`**: Fetch video details from an Instagram Reel URL. 📸
   - **Parameters:**
     - `url`: The Instagram Reel video URL. 🌐
   - **Response:**
