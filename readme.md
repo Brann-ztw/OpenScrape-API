@@ -26,9 +26,9 @@ Welcome to **OpenScrape API**, an open-source RESTful service built with **TypeS
    ```
 4. **Explore the Endpoints:** Access the API documentation to discover available routes and functionalities.
 
-## ⚠️ Note
+<!-- ## ⚠️ Note
 
-You can replace `localhost` with your server's domain name. The repository is deployed, and you can make requests to the main URL of the repository: [API URL](YOUR_API_URL_HERE).
+You can replace `localhost` with your server's domain name. The repository is deployed, and you can make requests to the main URL of the repository: [API URL](YOUR_API_URL_HERE). -->
 
 ## 📚 API Endpoints
 
