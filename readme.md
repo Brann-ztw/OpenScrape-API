@@ -26,6 +26,22 @@ Welcome to **OpenScrape API**, an open-source RESTful service built with **TypeS
    ```
 4. **Explore the Endpoints:** Access the API documentation to discover available routes and functionalities.
 
+## ⚠️ Note
+
+You can replace `localhost` with your server's domain name. The repository is deployed, and you can make requests to the main URL of the repository: [API URL](YOUR_API_URL_HERE).
+
+## 📚 API Endpoints
+
+### YouTube Download Endpoint
+
+- **`GET /download/yt/?url=<YouTube URL>`**: Fetch video/audio details from a YouTube URL. 🎥
+  - **Parameters:**
+    - `url`: The YouTube video URL. 🌐
+  - **Response:**
+    - `title`: The title of the YouTube video. 🏷️
+    - `thumbnail`: The URL of the video’s thumbnail image. 🖼️
+    - `downloadLink`: A link to download the video/audio. ⬇️
+
 ## 🤝 Contributing
 
 We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) to get started.
