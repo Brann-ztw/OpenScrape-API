@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import axios from 'axios';
-import { ReturnScraper, ReturnPromise, ReturnAxios, ResponseType, ResponseEndpoint, DataReponse } from "../types/downloadYtType";
+import { ReturnScraper, ReturnPromise, ReturnAxios, ResponseType, ResponseEndpoint, DataReponse } from "../types/youtube";
 
 let response: ResponseType;
 

@@ -1,6 +1,6 @@
 import express, { Application} from 'express';
-import { routerDownloadYoutube } from './downloadYoutubeRouter';
-import { routerDownloadInstagram } from './downloadIgRouter'
+import { routerDownloadYoutube } from './yotubeRouter';
+import { routerDownloadInstagram } from './intagramRouter'
 export const app: Application = express();
  
 app.use('/download/yt', routerDownloadYoutube);

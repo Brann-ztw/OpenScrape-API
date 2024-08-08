@@ -1,9 +1,9 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { Request, Response } from 'express';
-import { response, AxiosRespon, ResponseEndpoint, ReturnScrpaer } from '../types/downloadIgType';
+import { response, AxiosRespon, ResponseEndpoint, ReturnScrpaer } from '../types/instagram';
 
-let response: response //tipaarlo
+let response: response;
 
 const downloadIg = async(URL: string): Promise<response> => {
   const url = /^(https?:\/\/)?(www\.)?instagram\.com\/.*$/.test(URL); 
