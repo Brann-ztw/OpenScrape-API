@@ -20,5 +20,5 @@ exports.app.get('/', (req, res) => {
     return res.sendFile(path_1.default.join(__dirname, '..', '..', 'src','public', 'main', 'index.html'));
 });
 exports.app.get('/downloads', (req, res) => {
-    return res.sendFile(path_1.default.join(__dirname, '..', '..', 'src', 'downloads', 'index.html'));
+    return res.sendFile(path_1.default.join(__dirname, '..', '..', 'src', 'public', 'downloads', 'index.html'));
 });
