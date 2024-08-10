@@ -3,6 +3,7 @@ import { routerYoutube } from './downloader/yotubeRouter';
 import { routerInstagram } from './downloader/intagramRouter'
 import { routerMediafire } from './downloader/mediafireControll';
 import { routerSpotify } from './downloader/spotify';
+import { routerTikTok } from './downloader/tiktokRouter';
 import path from 'path';
 export const app: Application = express();
  
@@ -10,6 +11,7 @@ app.use('/api/download/youtube', routerYoutube);
 app.use('/api/download/instagram', routerInstagram);
 app.use('/api/download/mediafire', routerMediafire);
 app.use('/api/download/spotify', routerSpotify);
+app.use('/api/download/tiktok', routerTikTok);
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 // exports.app.use(express_1.default.static(path_1.default.join(__dirname, '..', '..', 'src', 'public')));

@@ -26,7 +26,7 @@ export const spotifyController = async(req: Request, res:Response): Promise<Resp
   if (!url) return res.status(400).json({ message: 'URL is not defined' });
 
   try {
-    const spotify = await scraper(url);
+    const spotify: axiosResponse = await scraper(url);
     if (spotify === 'invalid url') return res.status(400).json({ message: 'Invalid URL' });
     if (spotify === 'server error') return res.status(500).json({ message: 'Internal server error' });
     return res.status(200).json(spotify);

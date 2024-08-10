@@ -32,7 +32,7 @@ export const mediafireController = async(req: Request, res:Response): Promise<Re
   if (!url) return res.status(400).json({ message: 'URL is not defined' });
 
   try {
-    const md = await scraper(url);
+    const md: response = await scraper(url);
     if (md === 'invalid url') return res.status(400).json({ message: 'Invalid URL' });
     if (md === 'server error') return res.status(500).json({ message: 'Internal server error' });
     return res.status(200).json(md);

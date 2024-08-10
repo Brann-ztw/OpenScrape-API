@@ -35,7 +35,7 @@ export const instagramController = async(req: Request, res:Response): Promise<Re
   if (!url) return res.status(400).json({ message: 'URL is not defined' });
 
   try {
-    const ig = await scraper(url);
+    const ig: response = await scraper(url);
     if (ig === 'invalid url') return res.status(400).json({ message: 'Invalid URL' });
     if (ig === 'server error') return res.status(500).json({ message: 'Internal server error' });
     return res.status(200).json(ig);

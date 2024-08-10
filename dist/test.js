@@ -6,11 +6,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 const scraper = async (url) => {
     try {
-        const { data } = await axios_1.default.get('https://spotifydownloaders.com/api/getSpotifyDetails?url=https://open.spotify.com/track/4KFG5ciFzeBOh2Hlzfwbwa?si=d7MDbEpgT-aFKy0Q73dMVQ');
+        const { data } = await axios_1.default.post('https://savetik.co/api/ajaxSearch', null, {
+            params: {
+                q: url,
+                lang: 'es'
+            },
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0',
+            }
+        });
         console.log(data);
     }
     catch (error) {
         return 'server error';
     }
 };
-scraper('');
+scraper('https://www.tiktok.com/@jennifer_aplicano.09/video/7397954248761150763?is_from_webapp=1&sender_device=pc');
