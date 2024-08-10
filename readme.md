@@ -34,7 +34,7 @@ You can replace `localhost` with your server's domain name. The repository is de
 
 ### YouTube Download Endpoint
 
-- **`GET /download/yt/?url=<YouTube URL>`**: Fetch video/audio details from a YouTube URL. 🎥
+- **`GET /api/download/yt/?url=<YouTube URL>`**: Fetch video/audio details from a YouTube URL. 🎥
   - **Parameters:**
     - `url`: The YouTube video URL. 🌐
   - **Response:**
@@ -44,7 +44,7 @@ You can replace `localhost` with your server's domain name. The repository is de
 
 ### Instagram Reels Download Endpoint
 
-- **`GET /download/ig/?url=<Instagram URL>`**: Fetch video details from an Instagram Reel URL. 📸
+- **`GET /api/download/ig/?url=<Instagram URL>`**: Fetch video details from an Instagram Reel URL. 📸
   - **Parameters:**
     - `url`: The Instagram Reel video URL. 🌐
   - **Response:**
