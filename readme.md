@@ -51,6 +51,56 @@ You can replace `localhost` with your server's domain name. The repository is de
     - `thumbnail`: The URL of the Reel’s thumbnail image. 🖼️
     - `downloadLink`:  A link to download the Reel video. ⬇️
 
+### Spotify Download Endpoint
+
+- **`GET /api/download/spotify/?url=<Spotify URL>`**: Download the audio from a Spotify song. 🎵
+  - **Parameters:**
+    - `url`: The Spotify song URL. 🌐
+  - **Response:**
+    - `title`: The title of the song. 🏷️
+    - `artist`: The artist of the song. 🎤
+    - `image`: The URL of the song’s cover image. 🖼️
+    - `downloadLink`: A link to download the audio. ⬇️
+
+### Mediafire Download Endpoint
+
+- **`GET /api/download/mediafire/?url=<Mediafire URL>`**: Download a file from Mediafire. 📂
+  - **Parameters:**
+    - `url`: The Mediafire file URL. 🌐
+  - **Response:**
+    - `fileName`: The name of the file. 🏷️
+    - `fileType`: The type of the file. 🗂️
+    - `fileSize`: The size of the file. 📏
+    - `downloadLink`: A link to download the file. ⬇️
+
+### TikTok Download Endpoint
+
+- **`GET /api/download/tiktok/?url=<TikTok URL>`**: Download a video from TikTok. 🎬
+  - **Parameters:**
+    - `url`: The TikTok video URL. 🌐
+  - **Response:**
+    - `downloadLink`: A link to download the video in HD. ⬇️
+
+### Pinterest Search Endpoint
+
+- **`GET /api/search/pinterest/?search=<Search Term>`**: Search for images on Pinterest by topic. 🔍
+  - **Parameters:**
+    - `search`: The search term for Pinterest images. 🌐
+  - **Response:**
+    - `imageUrl`: The URL of the image. 🖼️
+
+### npmj Search Endpoint
+
+- **`GET /api/search/npmj/?search=<Library Name>&limit=<Result Limit>`**: Search for npm packages by name and limit results. 📦
+  - **Parameters:**
+    - `search`: The name of the npm library. 🔍
+    - `limit`: The maximum number of results to return. 📊
+  - **Response:**
+    - `libraryName`: The name of the npm library. 🏷️
+    - `author`: The author of the library. 🧑‍💻
+    - `description`: A brief description of the library. 📝
+
+
 ## 🤝 Contributing
 
 We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) to get started.
