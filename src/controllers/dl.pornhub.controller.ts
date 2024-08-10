@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { Request, Response } from 'express';
-import { Result, AxiosData, ResultData } from '../interfaces/pornhub.interface'
+import { Result, AxiosData, ResultData } from '../types/dl.pornhub.type'
 
 const hub = async (url: string): Promise<Result[]> => {
     

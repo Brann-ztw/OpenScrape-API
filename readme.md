@@ -89,7 +89,7 @@ You can replace `localhost` with your server's domain name. The repository is de
   - **Response:**
     - `imageUrl`: The URL of the image. 🖼️
 
-### npmj Search Endpoint
+### Npmj Search Endpoint
 
 - **`GET /api/search/npmj/?search=<Library Name>&limit=<Result Limit>`**: Search for npm packages by name and limit results. 📦
   - **Parameters:**
@@ -99,6 +99,45 @@ You can replace `localhost` with your server's domain name. The repository is de
     - `libraryName`: The name of the npm library. 🏷️
     - `author`: The author of the library. 🧑‍💻
     - `description`: A brief description of the library. 📝
+
+
+## ⚠️ Error Responses
+
+When using the **OpenScrape API**, you might encounter the following error responses. Each error is designed to help you troubleshoot and correct your API requests:
+
+### 1. URL is not defined ❌
+
+- **Description:** This error occurs when the endpoint requires a query parameter named `url`, but it is not provided.
+- **Solution:** Ensure that you include the `url` query parameter in your request.
+  - Example: `/api/download/yt/?url=<YouTube URL>`
+
+### 2. Invalid URL ❌
+
+- **Description:** This error occurs when the provided `url` is not valid for the endpoint.
+- **Solution:** Verify that the URL you are using is correct and compatible with the endpoint you are calling.
+
+### 3. Internal server error 🔧
+
+- **Description:** This error indicates a server-side issue, possibly within the host or scraper.
+- **Solution:** If the error persists, report the issue to the developers. 
+  - Example Messages: "Internal server error" or "An error occurred during the process."
+
+### 4. Search or Limit is not defined 🔍
+
+- **Description:** This error occurs when the endpoint requires two query parameters, `search` and `limit`, and they are not provided.
+- **Solution:** Ensure that both `search` and `limit` query parameters are included in your request.
+  - Example: `/api/search/npmj/?search=<Library Name>&limit=<Result Limit>`
+
+### 5. There are no results for that limit 🚫
+
+- **Description:** This error occurs when the `limit` parameter is set too high, resulting in no search results.
+- **Solution:** Adjust the `limit` to a lower value that matches the available search results.
+
+### 6. Search is not defined 🔍
+
+- **Description:** This error occurs when the endpoint requires a query parameter named `search`, but it is not provided.
+- **Solution:** Make sure to include the `search` query parameter in your request.
+  - Example: `/api/search/pinterest/?search=<Search Term>`
 
 
 ## 🤝 Contributing
