@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { AnyNode } from "cheerio";
 
-export interface ReturnScrpaer {
+interface ReturnScrpaer {
   thumbnail: string | undefined,
   url: string | undefined
 }
@@ -20,4 +20,4 @@ export interface ResponseEndpoint{
 }
 type status = 'ok' | 500
 export type response = string | ReturnScrpaer;
-export type AxiosRespon = AxiosResponse<Data>;
+export type axiosResponse = AxiosResponse<Data>;

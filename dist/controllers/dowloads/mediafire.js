@@ -26,21 +26,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.mediafireController = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cheerio = __importStar(require("cheerio"));
-let response;
-const scraper = async (URL) => {
-    const url = /^(https?:\/\/)?(www\.)?mediafire\.com\/.*$/.test(URL);
-    if (!url)
+const parsedUrl_1 = require("../../utils/parsedUrl");
+const scraper = async (url) => {
+    const parsedURL = (0, parsedUrl_1.parsedUrl)(url);
+    if (!parsedURL)
         return 'invalid url';
     try {
-        const { data: html } = await axios_1.default.get(URL);
-        const $ = cheerio.load(html);
+        const { data } = await axios_1.default.get(url);
+        const $ = cheerio.load(data);
         const fileName = $('.dl-btn-label').text().replace(/ /g, '');
         const fileType = $('.filetype').text();
         const urlDownload = $('a#downloadButton').attr('href');
         const fileZize = $('.details').text().trim().split(/ +/).splice(2, 1).toString().trim();
-        response = {
+        return {
             fileName: fileName,
             fileType: fileType,
             fileZize: fileZize,
@@ -49,9 +50,24 @@ const scraper = async (URL) => {
     }
     catch (error) {
         console.error(error);
-        response = 'server error';
-    }
-    finally {
-        return response;
+        return 'server error';
     }
 };
+const mediafireController = async (req, res) => {
+    const url = req.query.url;
+    if (!url)
+        return res.status(400).json({ message: 'URL is not defined' });
+    try {
+        const md = await scraper(url);
+        if (md === 'invalid url')
+            return res.status(400).json({ message: 'Invalid URL' });
+        if (md === 'server error')
+            return res.status(500).json({ message: 'Internal server error' });
+        return res.status(200).json(md);
+    }
+    catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+};
+exports.mediafireController = mediafireController;

@@ -29,28 +29,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.controller = void 0;
 const axios_1 = __importDefault(require("axios"));
 const cheerio = __importStar(require("cheerio"));
-const download = async (url) => {
-    const { data: downloader } = await axios_1.default.post(this.downloadUrl, {
+const hub = async (url) => {
+    const { data: downloader } = await axios_1.default.post('', {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         data: { video_url: url }
     });
     const { data: html } = await axios_1.default.get(url);
-    const $ = cheerio.load(downloader);
-    const $$ = cheerio.load(html);
+    const $ = cheerio.load(downloader.data);
+    const $$ = cheerio.load(html.data);
     let result = [];
     $('div[class="form-group mb-4"]').each((i, e) => {
         result.push({
             title: $$('div[class="title-container translate"] h1[class="title translate"]').find('span').text().trim(),
             data: $$('div[class="video-actions-menu"]').find('div[class="videoInfo"]').text().trim(),
             views: $$('div[class="video-actions-menu"]').find('div[class="views"]').find('span').text().trim(),
-            raiting: $$('div[class="video-actions-menu"]').find('div[class="ratingPercent"]').find('span').text().trim(),
+            rating: $$('div[class="video-actions-menu"]').find('div[class="ratingPercent"]').find('span').text().trim(),
             likes: $$('div[class="votes-fav-wrap"]').find('span[class="votesUp"]').text().trim(),
             dislikes: $$('div[class="votes-fav-wrap"]').find('span[class="votesDown"]').text().trim(),
             favorites: $$('div[class="votes-fav-wrap"]').find('span[class="favoritesCounter"]').text().trim(),
             author: {
                 name: $$('div[class="userInfo"]').find('div[class="usernameWrap clearfix"]').text().trim()
             },
-            url: this.downloadUrl + $(e).find('a[class="btn btn-secondary mb-4"]').attr('href'),
+            url: '' + $(e).find('a[class="btn btn-secondary mb-4"]').attr('href'),
             quality: $(e).find('a').eq(0).text().trim()
         });
     });
@@ -64,11 +64,11 @@ const controller = async (req, res) => {
             message: `[!] URL is missing`
         });
     try {
-        const data = await download(url);
+        const data = await hub(url);
         return res.status(200).json({
             status: 200,
             message: 'Process completed successfully',
-            result: data
+            result: data,
         });
     }
     catch (e) {
