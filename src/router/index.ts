@@ -12,11 +12,15 @@ app.use('/api/download/mediafire', routerMediafire);
 app.use('/api/download/spotify', routerSpotify);
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
+// exports.app.use(express_1.default.static(path_1.default.join(__dirname, '..', '..', 'src', 'public')));
+
 
 app.get('/', (req: Request, res: Response) => {
   return res.sendFile(path.join(__dirname, '..', 'public', 'main', 'index.html'));
+  // return res.sendFile(path_1.default.join(__dirname, '..', '..', 'src','public', 'main', 'index.html'));
 });
 
 app.get('/downloads', (req: Request, res: Response) => {
   return res.sendFile(path.join(__dirname, '..', 'public', 'downloads', 'index.html'));
+  // return res.sendFile(path_1.default.join(__dirname, '..', '..', 'src', 'public', 'downloads', 'index.html'));
 });
