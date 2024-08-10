@@ -15,36 +15,12 @@ const scraper = async(url: string): ReturnPromise => {
         'content-type': 'application/x-www-form-urlencoded'
       }
     }) as ReturnAxios;
+
      return {
       url: data.url,
       title: data.title, 
       thumbnail: data.thumbnail,
-      media: [
-        {
-          url: data.medias[19].url,
-          quality:data.medias[19].quality,
-          extension: data.medias[19].extension,
-          formattedSize: data.medias[19].formattedSize
-        },
-        {
-          url: data.medias[9].url,
-          quality:data.medias[9].quality,
-          extension: data.medias[9].extension,
-          formattedSize: data.medias[9].formattedSize
-        },
-        {
-          url: data.medias[7].url,
-          quality:data.medias[7].quality,
-          extension: data.medias[7].extension,
-          formattedSize: data.medias[7].formattedSize
-        },
-        {
-          url: data.medias[2].url,
-          quality:data.medias[2].quality,
-          extension: data.medias[2].extension,
-          formattedSize: data.medias[2].formattedSize
-        }
-      ]
+      media: data.medias
     }
   } catch (error) {
     console.error(error);

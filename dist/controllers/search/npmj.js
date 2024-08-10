@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.npmjsController = void 0;
 const axios_1 = __importDefault(require("axios"));
 const scraper = async (text, limit) => {
     try {
@@ -16,11 +17,29 @@ const scraper = async (text, limit) => {
         if (limit < htmlMain.total) {
             return htmlMain.objects.splice(0, limit);
         }
-        return `There are no results for that limit, limit: ${htmlMain.toal}`;
+        return `There are no results for that limit`;
     }
     catch (error) {
         console.error(error);
         return 'server error';
     }
 };
-scraper('', 2);
+const npmjsController = async (req, res) => {
+    const search = req.query.search;
+    const limit = req.query.limit;
+    if (!search || !limit)
+        return res.status(400).json({ message: 'Search or Limit is not defined' });
+    try {
+        const npmjs = await scraper(search, limit);
+        if (npmjs === 'There are no results for that limit')
+            return res.status(400).json({ message: 'There are no results for that limit' });
+        if (npmjs === 'server error')
+            return res.status(500).json({ message: 'Internal server error' });
+        return res.status(200).json(npmjs);
+    }
+    catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+};
+exports.npmjsController = npmjsController;
